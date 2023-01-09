@@ -7,4 +7,4 @@ function About() {
     </div>
     )
 }
-export default aenu;
+export default About;
