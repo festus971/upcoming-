@@ -3,14 +3,16 @@ import Home from "./components/Home"
 import Login from './components/Login';
 import About from './components/About';
 import Signup from './components/Signup';
-import './App.css';
+import NavBar from './components/NavBar';
+
 
 function App() {
   return (
-    <div className="App">
-      <Home/>
+    <div>
+      <NavBar/>
+      <Home username ={user.name} city ={user.city} color = {user.color} />
+      <About bio={user.bio} links={user.links} />
       <Login/>
-      <About/>
       <Signup/>
     </div>
   );
