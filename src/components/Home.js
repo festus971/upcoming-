@@ -1,9 +1,11 @@
 import React from "react";
-function Home(){
+function Home({github, linkden}){
 
     return(
         <div>
-            Home about to get started
+            <h3> Links </h3>
+            <a href ={github}>{github}</a>
+            <a href={linkden}>{linkden}</a>
         </div>
     )
 }
