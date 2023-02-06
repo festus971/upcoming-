@@ -1,15 +1,26 @@
-import React from "react";
-import Home from "./Home";
+import React,{useEffect, useState} from "react";
+const usingFetch = ()=>{
+    const [users, setUsers] = useState([])
 
-function About({bio, links}) {
-    return (
-    <div>
-        <h2>About me</h2>
-        {bio && bio.lenght >1 ? <p>{bio}</p> : null}
-        <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />"
-        <Home github={links.github} linkden={links.linkden}/>
-        
-    </div>
+    const fetchData =()=>{
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response .json())
+        .then(data => setUsers(data))
+    }
+    useEffect (()=>{
+        fetchData()
+    }, [])
+
+    return(
+        <div>
+            {users.length > 0 &&(
+                <ul>
+                    {users.map(user=>(
+                        <li key={user.id}>{user.name}</li>
+                    ))}
+                </ul>
+            )}
+        </div>
     )
 }
-export default About;
+export default usingFetch
